@@ -6,7 +6,7 @@ import BookList from './components/BookList';
 
 class App extends Component {
   state = {
-    search: "",
+    search: "henry",
     books: [],
     url: "https://www.googleapis.com/books/v1/volumes"
   }
@@ -17,12 +17,15 @@ class App extends Component {
       .catch( e => console.log( `Error: ${e.message}` ) )
   }
   handleBooksReturn = (books) => {
+    
+    // add filter here
+
     this.setState({
       books: books
     })
   }
   componentDidMount(){
-    this.fetchBooks("henry")
+    this.fetchBooks(this.state.search)
   }
   render(){
     return (
@@ -30,7 +33,7 @@ class App extends Component {
         <header>
           <h1>Google Book Search</h1>
         </header>
-        <SearchBar />
+        <SearchBar fetchBooks={this.fetchBooks}/>
         <SearchFilter />
         <BookList books={this.state.books}/>
       </div>

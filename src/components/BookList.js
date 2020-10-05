@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import dummybooks from '../dummybooks.js';
 import Book from './Book';
 
 class BookList extends Component{
