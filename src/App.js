@@ -19,9 +19,6 @@ class App extends Component {
       .catch( e => console.log( `Error: ${e.message}` ) )
   }
   handleBooksReturn = (books) => {
-    
-    // add filter here
-
     this.setState({
       books: books
     })
