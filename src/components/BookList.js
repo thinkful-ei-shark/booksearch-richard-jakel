@@ -3,11 +3,9 @@ import dummybooks from '../dummybooks.js';
 import Book from './Book';
 
 class BookList extends Component{
-    state = {
-        books: dummybooks
-    }
     getBooks = () => {
-        return this.state.books.items.map( (book,idx) => {
+        if (typeof this.props.books !== "object") return;
+        return this.props.books.map( (book,idx) => {
             const price = (book.saleInfo.saleability === "FOR_SALE") ? book.saleInfo.listPrice.amount : 0;
             return (
                 <Book 
