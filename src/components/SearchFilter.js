@@ -7,7 +7,7 @@ class SearchFilter extends Component {
     }
     render(){
         return (
-            <div id="search--filters">
+            <div className="section--row search--filters">
                 <label htmlFor="printType">Print Type:</label>
                 <select name="printType" defaultValue="all" id="printType">
                     <option value="all" >All</option>

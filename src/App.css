@@ -1,5 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #000;
+
+}
 .App {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
 }
 
 .App-logo {
@@ -41,6 +52,7 @@
 .section--row {
   display: flex;
   flex-flow: row;
+  flex: 1;
 }
 
 .section--column {
@@ -48,4 +60,81 @@
   flex-flow: column;
   align-items: center;
   justify-content: flex-start;
+  flex: 1;
+}
+
+header h1 {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: calc(1.5rem + 1.5vw);
+  font-size: calc(2rem + 1.5vw);
+}
+
+form label {
+  font-size: 1.25rem;
+}
+
+form .search--term {
+  background-color: #888;
+  color: #000;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+form .search--filters {
+  background-color: #aaa;
+  color: #000;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+form .section--row {
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+li {
+  padding: 0.5rem;
+  min-width: 350px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid #777;
+  margin: 0.5rem;
+  box-shadow: 0 2px 10px #aaa;
+  cursor: pointer;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+li:not(.book--visible){
+  max-width: 350px;
+}
+li:not(.book--visible) .book--details{
+  display: none;
+}
+
+li h3 {
+  max-width: 350px;
+  overflow: hidden;
+  max-height: 50px;
+}
+
+li img {
+  object-fit: contain;
+  object-position: center;
 }

@@ -17,7 +17,7 @@ class SearchBar extends Component{
     render(){
         return (
             <form onSubmit={this.handleFormSubmit}>
-                <div className="section--row">
+                <div className="section--row search--term">
                     <label htmlFor="searchterm">Search:</label>
                     <input 
                         type="text" 
@@ -28,9 +28,7 @@ class SearchBar extends Component{
                     />
                     <button type="submit">Search</button>
                 </div>
-                <div className="section--row">
-                    <SearchFilter />
-                </div>
+                <SearchFilter />
             </form>
         )
     }
