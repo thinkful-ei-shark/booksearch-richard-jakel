@@ -9,14 +9,14 @@ class SearchFilter extends Component {
         return (
             <div id="search--filters">
                 <label htmlFor="printType">Print Type:</label>
-                <select name="printType" id="printType">
-                    <option value="all" selected >All</option>
+                <select name="printType" defaultValue="all" id="printType">
+                    <option value="all" >All</option>
                     <option value="books">Books</option>
                     <option value="magazines">Magazines</option>
                 </select>
                 <label htmlFor="searchFilter">Book Type:</label>
-                <select name="searchFilter" id="searchFilter">
-                    <option value="" selected>No Filter</option>
+                <select name="searchFilter" defaultValue="" id="searchFilter">
+                    <option value="">No Filter</option>
                     <option value="partial">Partial</option>
                     <option value="full">Full</option>
                     <option value="free-ebooks">Free eBooks</option>

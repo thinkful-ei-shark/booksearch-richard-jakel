@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
-import SearchFilter from './components/SearchFilter';
 import BookList from './components/BookList';
 
 class App extends Component {
@@ -10,8 +9,11 @@ class App extends Component {
     books: [],
     url: "https://www.googleapis.com/books/v1/volumes"
   }
-  fetchBooks = (searchterm) => {
-    fetch( `${this.state.url}?q=${searchterm}&key=AIzaSyCXDiXJ3rTJyW24jRwe-4FoFVVIW1kv8oc`)
+  fetchBooks = (data) => {
+    const { searchterm, printType, searchFilter } = data;
+    const filter = ( searchFilter !== '' ) ? `filter=${searchFilter}&` : '';
+    const pt = ( printType !== '' ) ? `printType=${printType}&` : '';
+    fetch( `${this.state.url}?q=${searchterm}&${filter}${pt}key=AIzaSyCXDiXJ3rTJyW24jRwe-4FoFVVIW1kv8oc`)
       .then( r => r.json())
       .then( r => this.handleBooksReturn(r.items) )
       .catch( e => console.log( `Error: ${e.message}` ) )
@@ -25,7 +27,12 @@ class App extends Component {
     })
   }
   componentDidMount(){
-    this.fetchBooks(this.state.search)
+    const data = {
+      searchterm: this.state.search,
+      printType: 'all',
+      searchFilter: ''
+    }
+    this.fetchBooks(data)
   }
   render(){
     return (
@@ -34,7 +41,6 @@ class App extends Component {
           <h1>Google Book Search</h1>
         </header>
         <SearchBar fetchBooks={this.fetchBooks}/>
-        <SearchFilter />
         <BookList books={this.state.books}/>
       </div>
     );

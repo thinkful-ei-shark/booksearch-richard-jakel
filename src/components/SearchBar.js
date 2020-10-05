@@ -6,22 +6,31 @@ class SearchBar extends Component{
     handleFormSubmit = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
-        const searchterm = form.get("searchterm");
-        this.props.fetchBooks(searchterm);
+        const data = {
+            searchterm: form.get("searchterm"),
+            printType: form.get("printType"),
+            searchFilter: form.get("searchFilter")
+        }
+        this.props.fetchBooks(data);
     }
 
     render(){
         return (
             <form onSubmit={this.handleFormSubmit}>
-                <label htmlFor="searchterm">Search:</label>
-                <input 
-                    type="text" 
-                    name="searchterm" 
-                    id="searchterm" 
-                    placeholder="henry" 
-                    required
-                />
-                <button type="submit">Search</button>
+                <div className="section--row">
+                    <label htmlFor="searchterm">Search:</label>
+                    <input 
+                        type="text" 
+                        name="searchterm" 
+                        id="searchterm" 
+                        placeholder="henry" 
+                        required
+                    />
+                    <button type="submit">Search</button>
+                </div>
+                <div className="section--row">
+                    <SearchFilter />
+                </div>
             </form>
         )
     }
