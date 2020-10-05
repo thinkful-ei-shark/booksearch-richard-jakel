@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './SearchBar';
-import SearchFilter from './SearchFilter';
-import BookList from './BookList';
+import SearchBar from './components/SearchBar';
+import SearchFilter from './components/SearchFilter';
+import BookList from './components/BookList';
 
 class App extends Component {
   render(){
