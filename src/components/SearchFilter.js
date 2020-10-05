@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class SearchFilter extends Component {
-    state = {
-        filterlist: ['partial','full','free-ebooks','paid-ebooks','ebooks'],
-        filter: 'No Filter'
-    }
     render(){
         return (
             <div className="section--row search--filters">
